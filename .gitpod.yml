@@ -1,8 +1,7 @@
 
 tasks:
   - init: |
-      curl https://get.starport.com/starport! | bash
+      curl https://get.starport.com/starport! | sudo bash
 vscode:
   extensions:
     - golang.go
-    - tabnine.tabnine-vscode
