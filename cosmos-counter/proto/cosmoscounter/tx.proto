@@ -1,0 +1,22 @@
+syntax = "proto3";
+package xmonader.cosmoscounter.cosmoscounter;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "github.com/xmonader/cosmos-counter/x/cosmoscounter/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc IncrCounter(MsgIncrCounter) returns (MsgIncrCounterResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgIncrCounter {
+  string creator = 1;
+}
+
+message MsgIncrCounterResponse {
+  uint64 count = 1;
+}
+
+// this line is used by starport scaffolding # proto/tx/message
