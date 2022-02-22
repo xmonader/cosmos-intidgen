@@ -48,14 +48,15 @@ func (k Keeper) Logger(ctx sdk.Context) log.Logger {
 }
 func (k Keeper) GetCounterKey(ctx sdk.Context) uint64 {
 	// Get the store using storeKey (which is "blog") and PostCountKey (which is "Post-count-")
-	store := prefix.NewStore([]byte(types.CounterKey))
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte(types.CounterKey))
+
 	// Convert the PostCountKey to bytes
 	byteKey := []byte(types.CounterKey)
 	// Get the value of the count
 	bz := store.Get(byteKey)
 	// Return zero if the count value is not found (for example, it's the first post)
 	if bz == nil {
-		store.Set(byteKey, 1)
+		store.Set(byteKey, []byte(string(1)))
 		return 1
 	}
 
@@ -65,7 +66,7 @@ func (k Keeper) GetCounterKey(ctx sdk.Context) uint64 {
 
 func (k Keeper) IncrCounterKey(ctx sdk.Context) uint64 {
 	// Get the store using storeKey (which is "blog") and PostCountKey (which is "Post-count-")
-	store := prefix.NewStore([]byte(types.CounterKey))
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), []byte(types.CounterKey))
 	// Convert the PostCountKey to bytes
 	byteKey := []byte(types.CounterKey)
 	// Get the value of the count

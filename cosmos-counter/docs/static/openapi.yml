@@ -19962,6 +19962,10 @@ definitions:
       freezing clients
   xmonader.cosmoscounter.cosmoscounter.MsgIncrCounterResponse:
     type: object
+    properties:
+      count:
+        type: string
+        format: uint64
   xmonader.cosmoscounter.cosmoscounter.Params:
     type: object
     description: Params defines the parameters for the module.
