@@ -50,3 +50,37 @@ curl https://get.starport.com/xmonader/intidgen@latest! | sudo bash
 - [Starport docs](https://docs.starport.com)
 - [Cosmos SDK docs](https://docs.cosmos.network)
 - [Developer Chat](https://discord.gg/H6wGTY8sxw)
+
+
+## cosmos inntidgen
+
+- `cd intidgen/cmd/intidgend && go build`
+- `./intidgend collect-gentxs`
+
+
+### query
+
+```
+➜  intidgend git:(master) ./intidgend query intidgen lastid
+lastid: "4"
+```
+### incr id
+
+```
+➜  intidgend git:(master) ./intidgend tx intidgen genid --from alice --chain-id intidgen --trace
+
+```
+
+query again
+
+```
+➜  intidgend git:(master) ./intidgend query intidgen lastid                                   
+lastid: "5"
+
+```
+
+
+
+used to generate sequential ids for
+- run the chain `starport chain serve`
+- collect genesis txs 
