@@ -2,6 +2,7 @@ package keeper
 
 import (
 	"context"
+	"fmt"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/xmonader/intidgen/x/intidgen/types"
@@ -12,6 +13,6 @@ func (k msgServer) Genid(goCtx context.Context, msg *types.MsgGenid) (*types.Msg
 
 	// TODO: Handling the message
 	_ = ctx
-
-	return &types.MsgGenidResponse{}, nil
+	k.IncTheLastId(ctx)
+	return &types.MsgGenidResponse{Id: fmt.Sprint(k.GetTheLastId(ctx))}, nil
 }

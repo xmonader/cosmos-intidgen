@@ -20,5 +20,5 @@ func (k Keeper) Lastid(goCtx context.Context, req *types.QueryLastidRequest) (*t
 	// TODO: Process the query
 	_ = ctx
 
-	return &types.QueryLastidResponse{Lastid: fmt.Sprint(k.lastid)}, nil
+	return &types.QueryLastidResponse{Lastid: fmt.Sprint(k.GetTheLastId(ctx))}, nil
 }
