@@ -1,0 +1,12 @@
+syntax = "proto3";
+package xmonader.intidgen.intidgen;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/xmonader/intidgen/x/intidgen/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}
